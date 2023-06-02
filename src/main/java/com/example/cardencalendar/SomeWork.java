@@ -3,47 +3,51 @@ package com.example.cardencalendar;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class SomeWork {
     private int volume;
     private double weight;
     private String substance;
     private String date;
-    DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd.MM.uuuu");
+    static DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd.MM.uuuu");
 
-    public SomeWork(){}
-    public SomeWork (int volume){
-        this.volume=volume;
-        LocalDate dataNow = LocalDate.now();
-        this.date = dataNow.format(formatters);
+    //мульчирование
+    public SomeWork() {
+        this.date = LocalDate.now().format(formatters);
     }
-    public SomeWork (String substance){
+
+    //полив
+    public SomeWork(int volume) {
+        this.volume = volume;
+        this.date = LocalDate.now().format(formatters);
+    }
+
+    //седерация
+    public SomeWork(String substance) {
         this.substance = substance;
-        LocalDate dataNow = LocalDate.now();
-        this.date = dataNow.format(formatters);
+        this.date = LocalDate.now().format(formatters);
     }
-//    public SomeWork (int volume,String substance){
-//        this.volume=volume;
-//        this.substance = substance;
-//        LocalDate dataNow = LocalDate.now();
-//        this.date = dataNow.format(formatters);}
 
-        public SomeWork (double weight,String substance){
-            this.weight=weight;
-            this.substance = substance;
-            LocalDate dataNow = LocalDate.now();
-            this.date = dataNow.format(formatters);
+    //минерализация, раскисление
+    public SomeWork(double weight, String substance) {
+        this.weight = weight;
+        this.substance = substance;
+        this.date = LocalDate.now().format(formatters);
+    }
 
+    //урожай
+    public SomeWork(double weight) {
+        this.weight = weight;
+        this.date = LocalDate.now().format(formatters);
     }
 
     public int getVolume() {
         return volume;
     }
 
-    public double getWeight() {return weight;}
+    public double getWeight() {
+        return weight;
+    }
 
     public String getSubstance() {
         return substance;
@@ -57,7 +61,9 @@ public class SomeWork {
         this.volume = volume;
     }
 
-    public void setWeight(double weight) {this.weight = weight;}
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 
     public void setSubstance(String substance) {
         this.substance = substance;
@@ -67,4 +73,7 @@ public class SomeWork {
         this.date = date;
     }
 
-       }
+    public DateTimeFormatter getFormatters() {
+        return formatters;
+    }
+}
