@@ -41,7 +41,6 @@ public class ButtonForTab {
             alert.showAndWait();
         }
     }
-
     public static void deleteSelectedTab() {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -67,7 +66,6 @@ public class ButtonForTab {
         }
 
     }
-
     public static void changeSelectedTab() {
         try {
             TextInputDialog dialog = new TextInputDialog();

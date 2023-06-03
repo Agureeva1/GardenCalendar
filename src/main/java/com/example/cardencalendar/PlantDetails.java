@@ -22,43 +22,43 @@ public class PlantDetails {
         TreeItem<String> harvstng = new TreeItem<String>("Урожай");
         workList.getChildren().addAll(wtrng, mnrlstn, dxdtn,mlchng,sdrtn,harvstng);
 
-        if (getSelectPlant().getWateringList().size() > 1) {
-        for (int i = 1; i< getSelectPlant().getWateringList().size(); i++) {
+        if (getSelectPlant().getWateringList().size() >= 1) {
+        for (int i = 0; i< getSelectPlant().getWateringList().size(); i++) {
             wtrng.getChildren().add(new TreeItem<String>(getSelectPlant().getWateringListString(i)));
         } } else {
             wtrng.getChildren().add(new TreeItem<String>("не поливали"));
         }
 
-        if (getSelectPlant().getMineralizationList().size() > 1) {
-            for (int i = 1; i< getSelectPlant().getMineralizationList().size(); i++) {
+        if (getSelectPlant().getMineralizationList().size() >= 1) {
+            for (int i = 0; i< getSelectPlant().getMineralizationList().size(); i++) {
                 mnrlstn.getChildren().add(new TreeItem<String>(getSelectPlant().getMineralizationListString(i)));
             } } else {
             mnrlstn.getChildren().add(new TreeItem<String>("не проводилась"));
         }
 
-        if (getSelectPlant().getDeoxidationList().size() > 1) {
-            for (int i = 1; i< getSelectPlant().getDeoxidationList().size(); i++) {
+        if (getSelectPlant().getDeoxidationList().size() >= 1) {
+            for (int i = 0; i< getSelectPlant().getDeoxidationList().size(); i++) {
                 dxdtn.getChildren().add(new TreeItem<String>(getSelectPlant().getDeoxidationListString(i)));
             } } else {
             dxdtn.getChildren().add(new TreeItem<String>("не проводилось"));
         }
 
-        if (getSelectPlant().getMulchingList().size() > 1) {
-            for (int i = 1; i< getSelectPlant().getMulchingList().size(); i++) {
+        if (getSelectPlant().getMulchingList().size() >= 1) {
+            for (int i = 0; i< getSelectPlant().getMulchingList().size(); i++) {
                 mlchng.getChildren().add(new TreeItem<String>(getSelectPlant().getMulchingListString(i)));
             } } else {
             mlchng.getChildren().add(new TreeItem<String>("не проводилось"));
         }
 
-        if (getSelectPlant().getSedationList().size() > 1) {
-            for (int i = 1; i< getSelectPlant().getSedationList().size(); i++) {
+        if (getSelectPlant().getSedationList().size() >= 1) {
+            for (int i = 0; i< getSelectPlant().getSedationList().size(); i++) {
                 sdrtn.getChildren().add(new TreeItem<String>(getSelectPlant().getSedationListString(i)));
             } } else {
             sdrtn.getChildren().add(new TreeItem<String>("не высаживали"));
         }
 
-        if (getSelectPlant().getHarvestingList().size() > 1) {
-            for (int i = 1; i< getSelectPlant().getHarvestingList().size(); i++) {
+        if (getSelectPlant().getHarvestingList().size() >= 1) {
+            for (int i = 0; i< getSelectPlant().getHarvestingList().size(); i++) {
                 harvstng.getChildren().add(new TreeItem<String>(getSelectPlant().getHarvestingListString(i)));
             } } else {
             harvstng.getChildren().add(new TreeItem<String>("не высаживали"));

@@ -28,12 +28,12 @@ public class Plant {
     private final StringProperty harvestingSum =
             new SimpleStringProperty();
 
-    private static ListProperty<SomeWork> wateringList;
-    private static ListProperty<SomeWork> mineralizationList;
-    private static ListProperty<SomeWork> mulchingList;
-    private static ListProperty<SomeWork> deoxidationList;
-    private static ListProperty<SomeWork> sedationList;
-    private static ListProperty<SomeWork> harvestingList;
+    private final ListProperty<SomeWork> wateringList = new SimpleListProperty<>();
+    private final ListProperty<SomeWork> mineralizationList= new SimpleListProperty<>();
+    private final ListProperty<SomeWork> mulchingList= new SimpleListProperty<>();
+    private final ListProperty<SomeWork> deoxidationList= new SimpleListProperty<>();
+    private final ListProperty<SomeWork> sedationList= new SimpleListProperty<>();
+    private final ListProperty<SomeWork> harvestingList= new SimpleListProperty<>();
 
 
 
@@ -47,18 +47,18 @@ public class Plant {
         this.sedationLastElement.set("не высаживали");
         this.harvestingSum.set("не собирали");
 
-        ObservableList<SomeWork> wateringList = FXCollections.observableArrayList(new SomeWork(0));
-        this.wateringList= new SimpleListProperty<>();
-        ObservableList<SomeWork> mineralizationList = FXCollections.observableArrayList(new SomeWork(0, "добавьте минерализацию"));
-        this.mineralizationList = new SimpleListProperty<>(mineralizationList);
-        ObservableList<SomeWork> mulchingList = FXCollections.observableArrayList(new SomeWork());
-        this.mulchingList = new SimpleListProperty<>(mulchingList);
-        ObservableList<SomeWork> deoxidationList = FXCollections.observableArrayList(new SomeWork(0, "добавьте раскисление"));
-        this.deoxidationList = new SimpleListProperty<>(deoxidationList);
-        ObservableList<SomeWork> sedationList = FXCollections.observableArrayList(new SomeWork("добавьте сидерацию"));
-        this.sedationList = new SimpleListProperty<>(sedationList);
-        ObservableList<SomeWork> harvestingList = FXCollections.observableArrayList(new SomeWork(0));
-        this.harvestingList = new SimpleListProperty<>(harvestingList);
+      //  ObservableList<SomeWork> wList = FXCollections.observableArrayList();
+        this.wateringList.set(FXCollections.observableArrayList());
+      //  ObservableList<SomeWork> mList = FXCollections.observableArrayList();
+        this.mineralizationList.set(FXCollections.observableArrayList());
+       // ObservableList<SomeWork> mulList = FXCollections.observableArrayList();
+        this.mulchingList.set(FXCollections.observableArrayList());
+       // ObservableList<SomeWork> dList = FXCollections.observableArrayList();
+        this.deoxidationList.set(FXCollections.observableArrayList());
+     //   ObservableList<SomeWork> sList = FXCollections.observableArrayList();
+        this.sedationList.set(FXCollections.observableArrayList());
+       // ObservableList<SomeWork> hList = FXCollections.observableArrayList();
+        this.harvestingList.set(FXCollections.observableArrayList());
 
     }
 
@@ -87,46 +87,44 @@ public class Plant {
         this.name.set(name);
     }
 
-    public ListProperty<SomeWork> wateringListProperty() {
-        return wateringList;
-    }
 
-    public static ObservableList<SomeWork> getWateringList() {
-        return wateringList.get();
-    }
-    public static String getWateringListString(int i) {
-        return wateringList.get(i).getVolume()+ " л. " + wateringList.get(i).getDate();
-    }
 
-    public void setWateringList(ObservableList<SomeWork> wateringList) {
-        this.wateringList.set(wateringList);
-    }
 
+
+
+    public ListProperty<SomeWork> wateringListProperty() {return wateringList;}
+    public ObservableList<SomeWork> getWateringList() {
+        return this.wateringList.get();
+    }
+    public String getWateringListString(int i) {
+        return this.wateringList.get(i).getVolume()+ " л. " + this.wateringList.get(i).getDate();
+    }
+    public void setWateringList(ObservableList<SomeWork> wateringList) {this.wateringList.set(wateringList);}
     public StringProperty wateringLastElementProperty() {
-        return wateringLastElement;
+        return this.wateringLastElement;
     }
-
     public String getWateringLastElement() {
-        return wateringLastElement.get();
+        return this.wateringLastElement.get();
     }
-
     public void setWateringLastElement() {
-        this.wateringLastElement.set(String.valueOf(getLastSomeWorkWateringList().getVolume() + " л.   " + getLastSomeWorkWateringList().getDate()));
+        this.wateringLastElement.set(String.valueOf(getLastSomeWorkWateringList().getVolume() + " л.   " +
+                getLastSomeWorkWateringList().getDate()));
+    }
+    public SomeWork getLastSomeWorkWateringList() {
+        return this.wateringList.get(this.wateringList.size() - 1);
     }
 
-    public SomeWork getLastSomeWorkWateringList() {
-        return wateringList.get(wateringList.size() - 1);
-    }
+
 
     public ListProperty<SomeWork> mineralizationListProperty() {
-        return mineralizationList;
+        return this.mineralizationList;
     }
 
     public ObservableList<SomeWork> getMineralizationList() {
-        return mineralizationList.get();
+        return this.mineralizationList.get();
     }
-    public static String getMineralizationListString(int i) {
-        return mineralizationList.get(i).getWeight()+ " кг. " + mineralizationList.get(i).getSubstance() + "  " + mineralizationList.get(i).getDate();
+    public String getMineralizationListString(int i) {
+        return this.mineralizationList.get(i).getWeight()+ " кг. " + this.mineralizationList.get(i).getSubstance() + "  " + mineralizationList.get(i).getDate();
     }
 
     public void setMineralizationList(ObservableList<SomeWork> mineralizationList) {
@@ -134,11 +132,11 @@ public class Plant {
     }
 
     public StringProperty mineralizationLastElementProperty() {
-        return mineralizationLastElement;
+        return this.mineralizationLastElement;
     }
 
     public String getMineralizationLastElement() {
-        return mineralizationLastElement.get();
+        return this.mineralizationLastElement.get();
     }
 
     public void setMineralizationLastElement() {
@@ -146,7 +144,7 @@ public class Plant {
     }
 
     public SomeWork getLastSomeWorkMineralizationList() {
-        return mineralizationList.get(mineralizationList.size() - 1);
+        return this.mineralizationList.get(this.mineralizationList.size() - 1);
     }
 
     public ListProperty<SomeWork> mulchingListProperty() {
@@ -154,10 +152,10 @@ public class Plant {
     }
 
     public ObservableList<SomeWork> getMulchingList() {
-        return mulchingList.get();
+        return this.mulchingList.get();
     }
-    public static String getMulchingListString(int i) {
-        return mulchingList.get(i).getDate();
+    public String getMulchingListString(int i) {
+        return this.mulchingList.get(i).getDate();
     }
 
     public void setMulchingList(ObservableList<SomeWork> mulchingList) {
@@ -165,11 +163,11 @@ public class Plant {
     }
 
     public StringProperty mulchingLastElementProperty() {
-        return mulchingLastElement;
+        return this.mulchingLastElement;
     }
 
     public String getMulchingLastElement() {
-        return mulchingLastElement.get();
+        return this.mulchingLastElement.get();
     }
 
     public void setMulchingLastElement() {
@@ -177,18 +175,18 @@ public class Plant {
     }
 
     public SomeWork getLastSomeWorkMulchingList() {
-        return mulchingList.get(mulchingList.size() - 1);
+        return this.mulchingList.get(this.mulchingList.size() - 1);
     }
 
     public ListProperty<SomeWork> deoxidationListProperty() {
-        return deoxidationList;
+        return this.deoxidationList;
     }
 
     public ObservableList<SomeWork> getDeoxidationList() {
-        return deoxidationList.get();
+        return this.deoxidationList.get();
     }
-    public static String getDeoxidationListString(int i) {
-        return deoxidationList.get(i).getWeight()+ " кг. " + deoxidationList.get(i).getSubstance() + "  " + deoxidationList.get(i).getDate();
+    public String getDeoxidationListString(int i) {
+        return this.deoxidationList.get(i).getWeight()+ " кг. " + this.deoxidationList.get(i).getSubstance() + "  " + this.deoxidationList.get(i).getDate();
     }
 
     public void setDeoxidationList(ObservableList<SomeWork> deoxidationList) {
@@ -196,11 +194,11 @@ public class Plant {
     }
 
     public StringProperty deoxidationLastElementProperty() {
-        return deoxidationLastElement;
+        return this.deoxidationLastElement;
     }
 
     public String getDeoxidationLastElement() {
-        return deoxidationLastElement.get();
+        return this.deoxidationLastElement.get();
     }
 
     public void setDeoxidationLastElement() {
@@ -208,20 +206,20 @@ public class Plant {
     }
 
     public SomeWork getLastSomeWorkDeoxidationList() {
-        return deoxidationList.get(deoxidationList.size() - 1);
+        return this.deoxidationList.get(this.deoxidationList.size() - 1);
     }
 
     public ListProperty<SomeWork> sedationListProperty() {
-        return sedationList;
+        return this.sedationList;
     }
 
 
     public ObservableList<SomeWork> getSedationList() {
-        return sedationList.get();
+        return this.sedationList.get();
     }
 
-    public static String getSedationListString(int i) {
-        return sedationList.get(i).getSubstance() + "  " + sedationList.get(i).getDate();
+    public String getSedationListString(int i) {
+        return this.sedationList.get(i).getSubstance() + "  " + this.sedationList.get(i).getDate();
     }
 
     public void setSedationList(ObservableList<SomeWork> sedationList) {
@@ -229,11 +227,11 @@ public class Plant {
     }
 
     public StringProperty sedationLastElementProperty() {
-        return sedationLastElement;
+        return this.sedationLastElement;
     }
 
     public String getSedationLastElement() {
-        return sedationLastElement.get();
+        return this.sedationLastElement.get();
     }
 
     public void setSedationLastElement() {
@@ -241,18 +239,18 @@ public class Plant {
     }
 
     public SomeWork getLastSomeWorkSedationList() {
-        return sedationList.get(sedationList.size() - 1);
+        return this.sedationList.get(this.sedationList.size() - 1);
     }
 
     public ListProperty<SomeWork> harvestingListProperty() {
-        return harvestingList;
+        return this.harvestingList;
     }
 
     public ObservableList<SomeWork> getHarvestingList() {
-        return harvestingList.get();
+        return this.harvestingList.get();
     }
-    public static String getHarvestingListString(int i) {
-        return harvestingList.get(i).getWeight()+ " кг. " + harvestingList.get(i).getDate();
+    public String getHarvestingListString(int i) {
+        return this.harvestingList.get(i).getWeight()+ " кг. " + this.harvestingList.get(i).getDate();
     }
 
     public void setHarvestingList(ObservableList<SomeWork> harvestingList) {
@@ -260,21 +258,21 @@ public class Plant {
     }
 
     public StringProperty harvestingSumProperty() {
-        return harvestingSum;
+        return this.harvestingSum;
     }
 
     public String getHarvestingSum() {
-        return harvestingSum.get();
+        return this.harvestingSum.get();
     }
 
     public SomeWork getLastSomeWorkHarvestingList() {
-        return harvestingList.get(harvestingList.size() - 1);
+        return this.harvestingList.get(this.harvestingList.size() - 1);
     }
 
     public void setHarvestingSum() {
         double x = 0;
-        for (int i = 0; i < harvestingList.size(); i++) {
-            x += harvestingList.get(i).getWeight();
+        for (int i = 0; i < this.harvestingList.size(); i++) {
+            x += this.harvestingList.get(i).getWeight();
         }
         this.harvestingSum.set(x + " кг.  " + getLastSomeWorkHarvestingList().getDate());
     }

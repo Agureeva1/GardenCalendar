@@ -177,7 +177,8 @@ public class TextFieldGridPane {
 
     public void addPlant() {
         try {
-            if (numberField.getText().trim().length() == 0 || nameField.getText().trim().length() == 0) {
+         //   if (numberField.getText().trim().length() == 0 || nameField.getText().trim().length() == 0) {
+                if (numberField.getText() == null || nameField.getText() == null) {
                 catchMessage("Не удалось добавить растение. Убедитесь, " +
                         "что в числовом поле указан номер грядки," +
                         " а в поле наименование - название культуры.");
@@ -194,8 +195,8 @@ public class TextFieldGridPane {
 
     public void changeSelectedPlant() {
         try {
-            if (numberField.getText().trim().length() == 0 && nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
-                catchMessage("Выберите растение, которое хотите изменить, нажав на него. " +
+        //    if (numberField.getText().trim().length() == 0 && nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+            if (numberField.getText() == null && nameField.getText() == null || getSelectModel().isEmpty()) {   catchMessage("Выберите растение, которое хотите изменить, нажав на него. " +
                         "Убедитесь, что хотя бы одно поле заполнено - числовое поле или название культуры.");
             } else {
                 if (numberField.getText() != null) {
@@ -229,7 +230,8 @@ public class TextFieldGridPane {
 
     public void addWatering() {
         try {
-            if (numberField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+            //  if (numberField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+                if (numberField.getText()== null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно добавить полив. " +
                         "Убедитесь, что числовое поле содержит объем полива. Если дата не заполнена," +
                         " программа проставит текущую дату полива.");
@@ -241,12 +243,6 @@ public class TextFieldGridPane {
                         getSelectPlant().getWateringList().add(new SomeWork(val));
                         getSelectPlant().setWateringLastElement();
                         clearFields();
-                        for (int i = 0;i<getTableList().get(0).getItems().size();i++) {
-                            System.out.println(getTableList().get(0).getItems().get(i).getNumberRidge() + ", " +
-                                    getTableList().get(0).getItems().get(i).getName() + ", " +
-                                    getTableList().get(0).getItems().get(i).getWateringList().get(0).getVolume() + ", " +
-                                  getTableList().get(0).getItems().get(i).getWateringList().get(1).getVolume()
-                                    );
                         }
                     }
                     if (dateField.getValue() != null && numberField.getText().trim().length() > 0) {
@@ -256,7 +252,6 @@ public class TextFieldGridPane {
                         getSelectPlant().getWateringList().get(getSelectPlant().getWateringList().size() - 1).setDate(data);
                         getSelectPlant().setWateringLastElement();
                         clearFields();
-                    }
                 }
             }
         } catch (Exception e) {
@@ -266,7 +261,8 @@ public class TextFieldGridPane {
 
     public void changeWatering() {
         try {
-            if (dateField.getValue() == null && numberField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+        //    if (dateField.getValue() == null && numberField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+                if (dateField.getValue() == null && numberField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно изменить полив, нажав на строку. " +
                         "Если числовое поле не заполнено, объем изменен не будет. " +
                         "Если дата не заполнена, дата изменена не будет.");
@@ -304,13 +300,12 @@ public class TextFieldGridPane {
             if (getSelectModel().isEmpty()) {
                 catchMessage("Не удалось удалить полив. Убедитесь, " +
                         "что Вы выбрали растение.");
-            } else if (getSelectPlant().getWateringList().size() <= 1) {
+            } else if (getSelectPlant().getWateringList().size() < 1) {
                 catchMessage("Не удалось удалить полив. Убедитесь, " +
                         "что ранее добавляли данные.");
             } else {
-
-                getSelectPlant().getWateringList().remove(getSelectPlant().getWateringList().size() - 1);
-                if (getSelectPlant().getWateringList().size() > 1) {
+                getSelectPlant().getWateringList().remove(getSelectPlant().getWateringList().size()-1);
+                if (getSelectPlant().getWateringList().size() >= 1) {
                     getSelectPlant().setWateringLastElement();
                     clearFields();
                 } else {
@@ -323,11 +318,10 @@ public class TextFieldGridPane {
         }
 
     }
-
-
     public void addMineralization() {
         try {
-            if (numberField.getText().trim().length() == 0 || nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+          //  if (numberField.getText().trim().length() == 0 || nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+            if (numberField.getText() == null || nameField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно добавить минерализацию. " +
                         "Убедитесь, что добавили название удобрения и его объем.");
             } else {
@@ -348,13 +342,12 @@ public class TextFieldGridPane {
                     "внесенного удобрения и его название.");
         }
     }
-
     public void changeMineralization() {
         try {
             if (dateField.getValue() == null && nameField.getText() == null && numberField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно изменить минерализацию. " +
                         "Убедитесь, что добавили название удобрения, его объем или дату минерализации.");
-            } else if (getSelectPlant().getMineralizationList().size() <= 1) {
+            } else if (getSelectPlant().getMineralizationList().size() <1) {
                 catchMessage("Вы не можете внести изменения, т.к. не добавляли ранее данные о минерализации.");
             } else {
                 if (numberField.getText() != null) {
@@ -374,8 +367,6 @@ public class TextFieldGridPane {
                     String date = notFutureData(dateField);
                     getSelectPlant().getMineralizationList().get(getSelectPlant().getMineralizationList().size() - 1).setDate(date);
 
-                    //  getSelectPlant().setMineralizationLastElement();
-
                 }
                 getSelectPlant().setMineralizationLastElement();
                 clearFields();
@@ -385,16 +376,14 @@ public class TextFieldGridPane {
                     "Убедитесь, что хотя бы одно поле заполнено.");
         }
     }
-
     public void delMineralization() {
         try {
-            if (getSelectModel().isEmpty() || getSelectPlant().getMineralizationList().size() <= 1) {
+            if (getSelectModel().isEmpty() || getSelectPlant().getMineralizationList().size() < 1) {
                 catchMessage("Не удалось удалить минерализацию. Убедитесь, " +
                         "что Вы выбрали растение и раннее добавляли минерализацию.");
             } else {
-
                 getSelectPlant().getMineralizationList().remove(getSelectPlant().getMineralizationList().size() - 1);
-                if (getSelectPlant().getMineralizationList().size() > 1) {
+                if (getSelectPlant().getMineralizationList().size() >= 1) {
                     getSelectPlant().setMineralizationLastElement();
                     clearFields();
                 } else {
@@ -406,23 +395,23 @@ public class TextFieldGridPane {
             catchMessage("Не удалось удалить минерализацию. Сбой программы.");
         }
     }
-
-
     public void addDeoxidation() {
         try {
-            if (numberField.getText().trim().length() == 0 || nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+           // if (numberField.getText().trim().length() == 0 || nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+                if (numberField.getText() == null || nameField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно добавить раскисление. " +
                         "Убедитесь, что добавили название препарата и его объем.");
             } else {
                 if (numberField.getText() != null && nameField.getText() != null) {
                     double val = Double.parseDouble(numberField.getText());
                     getSelectPlant().getDeoxidationList().add(new SomeWork(val, nameField.getText()));
-                    getSelectPlant().setDeoxidationLastElement();
+                  //  getSelectPlant().setDeoxidationLastElement();
                     if (dateField.getValue() != null) {
                         String data = notFutureData(dateField);
                         getSelectPlant().getDeoxidationList().get(getSelectPlant().getDeoxidationList().size() - 1).setDate(data);
-                        getSelectPlant().setDeoxidationLastElement();
+                       // getSelectPlant().setDeoxidationLastElement();
                     }
+                    getSelectPlant().setDeoxidationLastElement();
                     clearFields();
                 }
             }
@@ -431,13 +420,12 @@ public class TextFieldGridPane {
                     "внесенного препарата и его название.");
         }
     }
-
     public void changeDeoxidation() {
         try {
             if (dateField.getValue() == null && nameField.getText() == null && numberField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно изменить раскисление. " +
                         "Убедитесь, что добавили название препарата, его объем или дату раскисления.");
-            } else if (getSelectPlant().getDeoxidationList().size() <= 1) {
+            } else if (getSelectPlant().getDeoxidationList().size() < 1) {
                 catchMessage("Вы не можете внести изменения, т.к. не добавляли ранее данные о раскислении.");
             } else {
                 if (numberField.getText() != null) {
@@ -466,16 +454,15 @@ public class TextFieldGridPane {
                     "Убедитесь, что хотя бы одно поле заполнено.");
         }
     }
-
     public void delDeoxidation() {
         try {
-            if (getSelectModel().isEmpty() || getSelectPlant().getDeoxidationList().size() <= 1) {
+            if (getSelectModel().isEmpty() || getSelectPlant().getDeoxidationList().size() < 1) {
                 catchMessage("Не удалось удалить раскисление. Убедитесь, " +
                         "что Вы выбрали растение и раннее добавляли раскисление.");
             } else {
 
                 getSelectPlant().getDeoxidationList().remove(getSelectPlant().getDeoxidationList().size() - 1);
-                if (getSelectPlant().getDeoxidationList().size() > 1) {
+                if (getSelectPlant().getDeoxidationList().size() >= 1) {
                     getSelectPlant().setDeoxidationLastElement();
                     clearFields();
                 } else {
@@ -487,8 +474,6 @@ public class TextFieldGridPane {
             catchMessage("Не удалось удалить раскисление. Сбой программы.");
         }
     }
-
-
     public void addMulching() {
         try {
             if (getSelectModel().isEmpty()) {
@@ -511,13 +496,12 @@ public class TextFieldGridPane {
             catchMessage("Не удалось добавить мульчирование. Сбой программы.");
         }
     }
-
     public void changeMulching() {
         try {
             if (dateField.getValue() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно изменить мульчирование, нажав на строку. " +
                         "Укажите новую дату.");
-            } else if (getSelectPlant().getMulchingList().size() <= 1) {
+            } else if (getSelectPlant().getMulchingList().size() < 1) {
                 catchMessage("Вы не можете внести изменения, т.к. не добавляли ранее данные о мульчировании.");
             } else {
                 if (dateField.getValue() != null) {
@@ -532,19 +516,17 @@ public class TextFieldGridPane {
             catchMessage("Не удалось изменить мульчирование. Сбой программы.");
         }
     }
-
     public void delMulching() {
         try {
             if (getSelectModel().isEmpty()) {
                 catchMessage("Не удалось удалить мульчирование. Убедитесь, " +
                         "что Вы выбрали растение.");
-            } else if (getSelectPlant().getMulchingList().size() <= 1) {
+            } else if (getSelectPlant().getMulchingList().size() < 1) {
                 catchMessage("Не удалось удалить мульчирование. Убедитесь, " +
                         "что ранее добавляли данные.");
             } else {
-
                 getSelectPlant().getMulchingList().remove(getSelectPlant().getMulchingList().size() - 1);
-                if (getSelectPlant().getMulchingList().size() > 1) {
+                if (getSelectPlant().getMulchingList().size() >= 1) {
                     getSelectPlant().setMulchingLastElement();
                     clearFields();
                 } else {
@@ -557,80 +539,67 @@ public class TextFieldGridPane {
         }
 
     }
-
-
     public void addSederat() {
         try {
-            if (nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+         //   if (nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+                if (nameField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите грядку, для которой нужно добавить сидерацию. " +
                         "Убедитесь, что поле наименование содержит название сидерата. Если дата не заполнена," +
                         " программа проставит текущую дату.");
             } else {
                 if (nameField.getText() != null) {
-                    if (dateField.getValue() == null && nameField.getText().trim().length() > 0) {
+                    if (nameField.getText().trim().length() > 0) {
                         getSelectPlant().getSedationList().add(new SomeWork(nameField.getText()));
-                        getSelectPlant().setSedationLastElement();
-                        clearFields();
                     }
-                    if (dateField.getValue() != null && nameField.getText().trim().length() > 0) {
+                    if (dateField.getValue() != null) {
                         String data = notFutureData(dateField);
-                        getSelectPlant().getSedationList().add(new SomeWork(nameField.getText()));
                         getSelectPlant().getSedationList().get(getSelectPlant().getSedationList().size() - 1).setDate(data);
-                        getSelectPlant().setSedationLastElement();
-                        clearFields();
                     }
+                    getSelectPlant().setSedationLastElement();
+                    clearFields();
                 }
             }
         } catch (Exception e) {
             catchMessage("Не удалось добавить сидерацию. Сбой программы.");
         }
     }
-
     public void changeSederat() {
         try {
-            if (dateField.getValue() == null && nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+          //  if (dateField.getValue() == null && nameField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+                if (dateField.getValue() == null && nameField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите грядку, для которой нужно изменить сидерацию, нажав на строку. " +
                         "Если наименование не заполнено, сидерат изменен не будет. " +
                         "Если дата не заполнена, дата изменена не будет.");
-            } else if (getSelectPlant().getSedationList().size() <= 1) {
+            } else if (getSelectPlant().getSedationList().size() < 1) {
                 catchMessage("Вы не можете внести изменения, т.к. не добавляли ранее данные о сидератах.");
             } else {
                 if (nameField.getText() != null) {
-                    if (nameField.getText().trim().length() > 0 && dateField.getValue() != null) {
+                    if (nameField.getText().trim().length() > 0) {
                         getSelectPlant().getSedationList().get(getSelectPlant().getSedationList().size() - 1).setSubstance(nameField.getText());
-                        String data = notFutureData(dateField);
-                        getSelectPlant().getSedationList().get(getSelectPlant().getSedationList().size() - 1).setDate(data);
-                        getSelectPlant().setSedationLastElement();
-                        clearFields();
-                    } else if (nameField.getText().trim().length() > 0) {
-                        getSelectPlant().getSedationList().get(getSelectPlant().getSedationList().size() - 1).setSubstance(nameField.getText());
-                        getSelectPlant().setSedationLastElement();
-                        clearFields();
-                    }
-                } else if (dateField.getValue() != null) {
+                    } }
+                if (dateField.getValue() != null) {
                     String date = notFutureData(dateField);
                     getSelectPlant().getSedationList().get(getSelectPlant().getSedationList().size() - 1).setDate(String.valueOf(date));
-                    getSelectPlant().setSedationLastElement();
+                }  getSelectPlant().setSedationLastElement();
                     clearFields();
                 }
-            }
+
         } catch (Exception e) {
             catchMessage("Не удалось изменить сидерацию. Сбой программы.");
         }
     }
-
     public void delSederat() {
         try {
             if (getSelectModel().isEmpty()) {
                 catchMessage("Не удалось удалить сидерацию. Убедитесь, " +
                         "что Вы выбрали грядку.");
-            } else if (getSelectPlant().getSedationList().size() <= 1) {
+            } else if (getSelectPlant().getSedationList().size() < 1) {
                 catchMessage("Не удалось удалить сидерацию. Убедитесь, " +
                         "что ранее добавляли данные.");
             } else {
 
                 getSelectPlant().getSedationList().remove(getSelectPlant().getSedationList().size() - 1);
-                if (getSelectPlant().getSedationList().size() > 1) {
+                if (getSelectPlant().getSedationList().size() >= 1) {
                     getSelectPlant().setSedationLastElement();
                     clearFields();
                 } else {
@@ -643,85 +612,68 @@ public class TextFieldGridPane {
         }
 
     }
-
-
     public void addHarvesting() {
         try {
-            if (numberField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+           // if (numberField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+            if (numberField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно добавить урожай. " +
                         "Убедитесь, что числовое поле содержит вес урожая. Если дата не заполнена," +
                         " программа проставит текущую дату сбора.");
 
             } else {
                 if (numberField.getText() != null) {
-                    if (dateField.getValue() == null && numberField.getText().trim().length() > 0) {
+                    if (numberField.getText().trim().length() > 0) {
                         double weight = Double.parseDouble(numberField.getText());
                         getSelectPlant().getHarvestingList().add(new SomeWork(weight));
-                        getSelectPlant().setHarvestingSum();
-                        clearFields();
                     }
-                    if (dateField.getValue() != null && numberField.getText().trim().length() > 0) {
-                        double weight = Double.parseDouble(numberField.getText());
+                    if (dateField.getValue() != null) {
                         String data = notFutureData(dateField);
-                        getSelectPlant().getHarvestingList().add(new SomeWork(weight));
                         getSelectPlant().getHarvestingList().get(getSelectPlant().getHarvestingList().size() - 1).setDate(data);
-                        getSelectPlant().setHarvestingSum();
-                        clearFields();
                     }
-                }
+                }   getSelectPlant().setHarvestingSum();
+                clearFields();
             }
         } catch (Exception e) {
             catchMessage("Не удалось добавить урожай. Сбой программы.");
         }
     }
-
     public void changeHarvesting() {
         try {
-            if (dateField.getValue() == null && numberField.getText().trim().length() == 0 || getSelectModel().isEmpty()) {
+            if (dateField.getValue() == null && numberField.getText() == null || getSelectModel().isEmpty()) {
                 catchMessage("Выберите растение, для которого нужно изменить урожай, нажав на строку. " +
                         "Если числовое поле не заполнено, вес изменен не будет. " +
                         "Если дата не заполнена, дата изменена не будет.");
-            } else if (getSelectPlant().getHarvestingList().size() <= 1) {
+            } else if (getSelectPlant().getHarvestingList().size() < 1) {
                 catchMessage("Вы не можете внести изменения, т.к. не добавляли ранее данные об урожае.");
             } else {
                 if (numberField.getText() != null) {
-                    if (numberField.getText().trim().length() > 0 && dateField.getValue() != null) {
+                    if (numberField.getText().trim().length() > 0) {
                         double weight = Double.parseDouble(numberField.getText());
                         getSelectPlant().getHarvestingList().get(getSelectPlant().getHarvestingList().size() - 1).setWeight(weight);
-                        String data = notFutureData(dateField);
-                        getSelectPlant().getHarvestingList().get(getSelectPlant().getHarvestingList().size() - 1).setDate(data);
-                        getSelectPlant().setHarvestingSum();
-                        clearFields();
-                    } else if (numberField.getText().trim().length() > 0) {
-                        double weight = Double.parseDouble(numberField.getText());
-                        getSelectPlant().getHarvestingList().get(getSelectPlant().getHarvestingList().size() - 1).setWeight(weight);
-                        getSelectPlant().setHarvestingSum();
-                        clearFields();
-                    }
-                } else if (dateField.getValue() != null) {
+                } }
+                if (dateField.getValue() != null) {
                     String date = notFutureData(dateField);
                     getSelectPlant().getHarvestingList().get(getSelectPlant().getHarvestingList().size() - 1).setDate(String.valueOf(date));
-                    getSelectPlant().setHarvestingSum();
-                    clearFields();
-                }
+
+                }  getSelectPlant().setHarvestingSum();
+                clearFields();
             }
         } catch (Exception e) {
             catchMessage("Не удалось изменить урожай. Убедитесь, что ввели данные для изменения.");
         }
     }
-
     public void delHarvesting() {
         try {
             if (getSelectModel().isEmpty()) {
                 catchMessage("Не удалось удалить урожай. Убедитесь, " +
                         "что Вы выбрали растение.");
-            } else if (getSelectPlant().getHarvestingList().size() <= 1) {
+            } else if (getSelectPlant().getHarvestingList().size() < 1) {
                 catchMessage("Не удалось удалить урожай. Убедитесь, " +
                         "что ранее добавляли данные.");
             } else {
 
                 getSelectPlant().getHarvestingList().remove(getSelectPlant().getHarvestingList().size() - 1);
-                if (getSelectPlant().getHarvestingList().size() > 1) {
+                if (getSelectPlant().getHarvestingList().size() >= 1) {
                     getSelectPlant().setHarvestingSum();
                     clearFields();
                 } else {
@@ -734,7 +686,6 @@ public class TextFieldGridPane {
         }
 
     }
-
 
     public void clearFields() {
         numberField.setText(null);

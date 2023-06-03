@@ -60,7 +60,29 @@ LabelWithTip pl = new LabelWithTip();
 
         });
 
-        VBox root = new VBox(newDataPane, new HBox(addTabBtn, deleteTabBtn, changeTabBtn, planArea), getTabpane());
+        Button pieChartWatering = new Button("Диаграмма полива");
+        pieChartWatering.setOnAction(e -> {
+            Stage stageChart = new Stage();
+            PieChartPlant chart= new PieChartPlant ();
+
+            StackPane root = new StackPane(chart.getChart());
+            root.setStyle("-fx-padding: 10;" +
+                    "-fx-border-style: solid inside;" +
+                    "-fx-border-width: 2;" +
+                    "-fx-border-insets: 5;" +
+                    "-fx-border-radius: 5;" +
+                    "-fx-border-color: blue;");
+            Scene scene = new Scene(root);
+
+            stageChart.setScene(scene);
+            stageChart.setTitle("Календарь огородника. Диаграмма");
+
+
+            stageChart.getIcons().add(new Image("C:\\Users\\aagureeva\\IdeaProjects\\GardenCalendar\\src\\main\\image\\клевер.png"));
+            stageChart.show();
+        });
+
+        VBox root = new VBox(newDataPane, new HBox(addTabBtn, deleteTabBtn, changeTabBtn, planArea, pieChartWatering), getTabpane());
         root.setSpacing(5);
         root.setStyle("-fx-padding: 10;" +
                 "-fx-border-style: solid inside;" +
