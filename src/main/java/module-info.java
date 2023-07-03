@@ -9,8 +9,9 @@ module com.example.cardencalendar {
     requires com.almasb.fxgl.all;
     requires java.desktop;
 
+
     opens com.example.cardencalendar to javafx.fxml;
     exports com.example.cardencalendar;
-    exports DELMaybe;
-    opens DELMaybe to javafx.fxml;
+    exports Module;
+    opens Module to javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package DELMaybe;
+package Module;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

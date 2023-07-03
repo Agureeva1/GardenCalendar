@@ -1,5 +1,8 @@
 package com.example.cardencalendar;
 
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,18 +14,19 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.awt.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.cardencalendar.ButtonForTab.getSelectedIndexTab;
-
 
 public class PlantTableView extends TableView {
-    TableView table;
+
+    private TableView table;
     private static List<TableView<Plant>> tableList = new ArrayList<>();
+    private static List<CheckBox> checkboxList = new ArrayList<CheckBox>();
 
     public PlantTableView() {
 
@@ -36,7 +40,10 @@ public class PlantTableView extends TableView {
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.setItems(getPlantList());
 
-        table.getColumns().addAll(getNumberRidgeColumn(),
+        table.getColumns().addAll(
+    //            getIDColumn(),
+                getSelectColumn(),
+                getNumberRidgeColumn(),
                 getNameColumn(),
                 getWateringColumn(),
                 getMineralizationColumn(),
@@ -59,7 +66,7 @@ public class PlantTableView extends TableView {
                     TableColumn column = pos.getTableColumn();
                     String val = column.getCellData(row).toString();
                     //   System.out.println("Selected Value, " + val + ", Column: " + col + ", Row: " + row);
-                    if ( col == 1 ) {
+                    if ( col == 2 ) {
 
                         TreeView<String> treeView = PlantDetails.getTreeView();
 
@@ -91,7 +98,9 @@ public class PlantTableView extends TableView {
     public static List<TableView<Plant>> getTableList() {
         return tableList;
     }
-
+    public void setPlantList(ObservableList<Plant> newPlantList) {
+        table.setItems(newPlantList);
+    }
     public static ObservableList<Plant> getPlantList() {
         Plant p1_1 = new Plant("1.1", "Чеснок");
         Plant p1_2 = new Plant("1.2", "Помидоры");
@@ -155,17 +164,50 @@ public class PlantTableView extends TableView {
                 p3_1,p3_2,p3_3,p4_1,p4_2,p4_3,p4_4,p4_5,p4_6);
     }
 
+    public static TableColumn<Plant, String> getSelectColumn() {
+        TableColumn selectColumn = new TableColumn("Построить диаграмму");
+        selectColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Plant, CheckBox>, ObservableValue<CheckBox>>() {
+
+            @Override
+            public ObservableValue<CheckBox> call(
+                    TableColumn.CellDataFeatures<Plant, CheckBox> arg0) {
+                Plant plant = arg0.getValue();
+                CheckBox checkBox = new CheckBox();
+                checkboxList.add(checkBox);
+                checkBox.selectedProperty().setValue(plant.isSelected());
+                checkBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
+                    public void changed(ObservableValue<? extends Boolean> ov,
+                                        Boolean old_val, Boolean new_val) {
+
+                        plant.setSelected(new_val);
+                    }
+                });
+                return new SimpleObjectProperty<CheckBox>(checkBox);
+
+            }
+
+        });
+
+        return selectColumn;
+    }
+
     public static TableColumn<Plant, String> getNumberRidgeColumn() {
 
         TableColumn<Plant, String> numberRidgeColumn = new TableColumn<>("№ грядки");
         numberRidgeColumn.setCellValueFactory(cellData -> cellData.getValue().numberRidgeProperty());
         return numberRidgeColumn;
     }
+
     public static TableColumn<Plant, String> getNameColumn() {
         TableColumn<Plant, String> nameColumn = new TableColumn<>("Культура");
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         return nameColumn;
     }
+//    public static TableColumn<Plant, Integer> getIDColumn() {
+//        TableColumn<Plant, Integer> idColumn = new TableColumn<>("ID");
+//        idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+//        return idColumn;
+//    }
     public static TableColumn<Plant, String> getWateringColumn() {
         TableColumn<Plant, String> wateringColumn = new TableColumn<>("Полив");
         wateringColumn.setCellValueFactory(cellData -> cellData.getValue().wateringLastElementProperty());
@@ -199,4 +241,7 @@ public class PlantTableView extends TableView {
         return harvestinColumn;
     }
 
+    public static List<CheckBox> getCheckboxList() {
+        return checkboxList;
+    }
 }

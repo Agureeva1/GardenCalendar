@@ -91,7 +91,9 @@ public class LabelWithTip{
                     tip = "данные отсутствуют";
                 }
             }  Tooltip tLong= new Tooltip(tip);
-            tLong.setFont(Font.font(15));
+            // tLong.setFont(Font.font(15));
+            tLong.setStyle("-fx-background-color: yellow;" +
+                    "-fx-text-fill: black;" + "-fx-font-size: 15;");
             label.setTooltip(tLong);
         } else if (getTabpane().getTabs().size() == 2) {
             String tip0 = "";
@@ -116,26 +118,36 @@ public class LabelWithTip{
             } int len = textTab1.length()+2;
         if (strInt>=20 && strInt<40) {
                 Tooltip tShot= new Tooltip(tip0.substring(len, tip0.length()));
-                tShot.setFont(Font.font(15));
+               // tShot.setFont(Font.font(15));
+            tShot.setStyle("-fx-background-color: yellow;" +
+                    "-fx-text-fill: black;" + "-fx-font-size: 15;");
                 label.setTooltip(tShot);
             }
            if (strInt>=200 && strInt<400) {
                Tooltip tShot= new Tooltip(tip0.substring(len, tip0.length()));
-               tShot.setFont(Font.font(15));
+             //  tShot.setFont(Font.font(15));
+               tShot.setStyle("-fx-background-color: yellow;" +
+                       "-fx-text-fill: black;" + "-fx-font-size: 15;");
                label.setTooltip(tShot);
            }
             if (strInt<20){
                 Tooltip tLong= new Tooltip(tip0 + "\n" + tip1);
-                tLong.setFont(Font.font(15));
+               // tLong.setFont(Font.font(15));
+                tLong.setStyle("-fx-background-color: yellow;" +
+                        "-fx-text-fill: black;" + "-fx-font-size: 15;");
                 label.setTooltip(tLong);
             }
             if (strInt>=40 && strInt<200){
                 Tooltip tLong= new Tooltip(tip0 + "\n" + tip1);
-                tLong.setFont(Font.font(15));
+              //  tLong.setFont(Font.font(15));
+                tLong.setStyle("-fx-background-color: yellow;" +
+                        "-fx-text-fill: black;" + "-fx-font-size: 15;");
                 label.setTooltip(tLong);}
             if (strInt>=400){
                 Tooltip tLong= new Tooltip(tip0 + "\n" + tip1);
-                tLong.setFont(Font.font(15));
+             //   tLong.setFont(Font.font(15));
+                tLong.setStyle("-fx-background-color: yellow;" +
+                        "-fx-text-fill: black;" + "-fx-font-size: 15;");
                 label.setTooltip(tLong);}
 
 
@@ -175,23 +187,33 @@ public class LabelWithTip{
                 int len = textTab0.length()+2;
                 if (strInt>=20 && strInt<40) {
                     Tooltip tShot= new Tooltip(tip0.substring(len, tip0.length()));
-                    tShot.setFont(Font.font(15));
+                  //  tShot.setFont(Font.font(15));
+                    tShot.setStyle("-fx-background-color: yellow;" +
+                            "-fx-text-fill: black;" + "-fx-font-size: 15;");
                     label.setTooltip(tShot);}
                if (strInt>=200 && strInt<400) {
                    Tooltip tShot= new Tooltip(tip0.substring(len, tip0.length()));
-                   tShot.setFont(Font.font(15));
+                  // tShot.setFont(Font.font(15));
+                   tShot.setStyle("-fx-background-color: yellow;" +
+                           "-fx-text-fill: black;" + "-fx-font-size: 15;");
                    label.setTooltip(tShot);}
                 if (strInt<20){
                     Tooltip tLong= new Tooltip(tip0 + "\n" + tip1 + "\n" + tip2);
-                    tLong.setFont(Font.font(15));
+                  //  tLong.setFont(Font.font(15));
+                    tLong.setStyle("-fx-background-color: yellow;" +
+                            "-fx-text-fill: black;" + "-fx-font-size: 15;");
                     label.setTooltip(tLong);}
                 if (strInt>=40 && strInt<200){
                     Tooltip tLong= new Tooltip(tip0 + "\n" + tip1 + "\n" + tip2);
-                    tLong.setFont(Font.font(15));
+                  //  tLong.setFont(Font.font(15));
+                    tLong.setStyle("-fx-background-color: yellow;" +
+                            "-fx-text-fill: black;" + "-fx-font-size: 15;");
                     label.setTooltip(tLong);}
                 if (strInt>=400){
                     Tooltip tLong= new Tooltip(tip0 + "\n" + tip1 + "\n" + tip2);
-                    tLong.setFont(Font.font(15));
+                   // tLong.setFont(Font.font(15));
+                    tLong.setStyle("-fx-background-color: yellow;" +
+                            "-fx-text-fill: black;" + "-fx-font-size: 15;");
                     label.setTooltip(tLong);}
             }
         }

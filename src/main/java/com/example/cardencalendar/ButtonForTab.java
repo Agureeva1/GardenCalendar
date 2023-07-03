@@ -1,11 +1,14 @@
 package com.example.cardencalendar;
 
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TextInputDialog;
 
 import java.util.Optional;
 
-import static com.example.cardencalendar.PlantTableView.getTableList;
 import static com.example.cardencalendar.MyTabPane.getTabpane;
+import static com.example.cardencalendar.PlantTableView.getTableList;
 
 public class ButtonForTab {
     public static void addTab() {
@@ -18,7 +21,7 @@ public class ButtonForTab {
 
             if (nameTab.get().trim().length() > 0) {
                 Tab newTab = new Tab();
-
+                int num = Integer.parseInt(nameTab.get());
                 newTab.setText(nameTab.get());
                 newTab.setClosable(false);
                 PlantTableView newTable = new PlantTableView();
@@ -29,7 +32,7 @@ public class ButtonForTab {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Информационное сообщение");
                 alert.setHeaderText(null);
-                alert.setContentText("Вы не указали название вкладки. Попробуйте еще раз.");
+                alert.setContentText("Название не может быть пустым и должно содержать в себе только целые числа. Попробуйте еще раз.");
 
                 alert.showAndWait();
             }
@@ -37,10 +40,11 @@ public class ButtonForTab {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Информационное сообщение");
             alert.setHeaderText(null);
-            alert.setContentText("Не удалось добавить вкладку.");
+            alert.setContentText("Не удалось добавить вкладку. Убедитесь, что название содержит в себе только целые числа.");
             alert.showAndWait();
         }
     }
+
     public static void deleteSelectedTab() {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -66,6 +70,7 @@ public class ButtonForTab {
         }
 
     }
+
     public static void changeSelectedTab() {
         try {
             TextInputDialog dialog = new TextInputDialog();
@@ -76,19 +81,20 @@ public class ButtonForTab {
             Optional<String> nameTab = dialog.showAndWait();
 
             if (nameTab.get().trim().length() > 0) {
+                int num = Integer.parseInt(nameTab.get());
                 MyTabPane.getTabpane().getSelectionModel().getSelectedItem().setText(nameTab.get());
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Информационное сообщение");
                 alert.setHeaderText(null);
-                alert.setContentText("Вы не указали название вкладки. Попробуйте еще раз.");
+                alert.setContentText("Название не может быть пустым и должно содержать в себе только целые числа. Попробуйте еще раз.");
                 alert.showAndWait();
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Информационное сообщение");
             alert.setHeaderText(null);
-            alert.setContentText("Не удалось изменить название вкладки.");
+            alert.setContentText("Не удалось изменить название вкладки. Убедитесь, что название содержит в себе только целые числа .");
             alert.showAndWait();
         }
 
