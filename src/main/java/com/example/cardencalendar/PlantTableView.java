@@ -81,7 +81,7 @@ public class PlantTableView extends TableView {
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
                         stage.setTitle("Детализация");
-                        stage.getIcons().add(new Image("C:\\Users\\aagureeva\\IdeaProjects\\GardenCalendar\\src\\main\\image\\клевер.png"));
+                        stage.getIcons().add(new Image("file:src\\main\\image\\клевер.png"));
                         stage.show();
 
 

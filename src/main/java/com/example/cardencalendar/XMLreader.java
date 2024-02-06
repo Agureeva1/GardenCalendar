@@ -39,7 +39,6 @@ public class XMLreader {
             if (childTab instanceof Element) {
                 Element childTabElement = (Element) childTab;
                 NodeList childrenPlant = childTabElement.getChildNodes();
-
                 PlantTableView table = new PlantTableView();
                 getTableList().add(table.getTable());
 

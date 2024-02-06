@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <root>
   <tab TextTab="2023">
-    <plant ID="1" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Помидоры" numberRidge="1.2" sedationLastElement="не высаживали" wateringLastElement="32 л.   16.06.2023">
+    <plant ID="1" deoxidationLastElement="12.0 кг.   селитра  20.09.2023" harvestingSum="56.0 кг.  15.09.2023" mineralizationLastElement="6.0 кг.   фосфор  20.09.2023" mulchingLastElement="02.08.2023" name="Помидоры" numberRidge="1.2" sedationLastElement="овес  20.09.2023" wateringLastElement="32 л.   16.06.2023">
       <wateringList WatListDate="16.06.2023" WatListVolume="32"/>
+      <mineralizationList MinListDate="20.09.2023" MinListSubstance="фосфор" MinListWeight="6.0"/>
+      <mulchingList MulListDate="02.08.2023"/>
+      <deoxidationList DeoListDate="20.09.2023" DeoListSubstance="селитра" DeoListWeight="12.0"/>
+      <sedationList SedListDate="20.09.2023" SedListSubstance="овес"/>
+      <harvestingLis HarListDate="01.09.2023" HarListWeight="12.0"/>
+      <harvestingLis HarListDate="02.09.2023" HarListWeight="12.0"/>
+      <harvestingLis HarListDate="15.09.2023" HarListWeight="32.0"/>
     </plant>
-    <plant ID="2" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Руккола" numberRidge="1.3" sedationLastElement="не высаживали" wateringLastElement="12 л.   16.06.2023">
+    <plant ID="2" deoxidationLastElement="не проводилось" harvestingSum="28.0 кг.  11.09.2023" mineralizationLastElement="1.0 кг.   азот  20.09.2023" mulchingLastElement="20.09.2023" name="Руккола" numberRidge="1.3" sedationLastElement="фацелия  20.09.2023" wateringLastElement="12 л.   16.06.2023">
       <wateringList WatListDate="16.06.2023" WatListVolume="12"/>
+      <mineralizationList MinListDate="20.09.2023" MinListSubstance="азот" MinListWeight="1.0"/>
+      <mulchingList MulListDate="20.09.2023"/>
+      <sedationList SedListDate="20.09.2023" SedListSubstance="люпин"/>
+      <sedationList SedListDate="20.09.2023" SedListSubstance="фацелия"/>
+      <harvestingLis HarListDate="08.09.2023" HarListWeight="11.0"/>
+      <harvestingLis HarListDate="11.09.2023" HarListWeight="17.0"/>
     </plant>
-    <plant ID="3" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Клубника Фестивальная" numberRidge="1.4" sedationLastElement="не высаживали" wateringLastElement="21 л.   16.06.2023">
+    <plant ID="3" deoxidationLastElement="не проводилось" harvestingSum="78.0 кг.  16.09.2023" mineralizationLastElement="не проводилась" mulchingLastElement="05.09.2023" name="Клубника Фестивальная" numberRidge="1.4" sedationLastElement="люпин  20.09.2023" wateringLastElement="21 л.   16.06.2023">
       <wateringList WatListDate="16.06.2023" WatListVolume="21"/>
+      <mulchingList MulListDate="05.09.2023"/>
+      <sedationList SedListDate="20.09.2023" SedListSubstance="люпин"/>
+      <harvestingLis HarListDate="07.09.2023" HarListWeight="23.0"/>
+      <harvestingLis HarListDate="13.09.2023" HarListWeight="21.0"/>
+      <harvestingLis HarListDate="16.09.2023" HarListWeight="34.0"/>
     </plant>
     <plant ID="4" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Пусто" numberRidge="1.5" sedationLastElement="не высаживали" wateringLastElement="22 л.   16.06.2023">
       <wateringList WatListDate="16.06.2023" WatListVolume="22"/>
@@ -69,7 +87,7 @@
     <plant ID="56" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Пусто" numberRidge="1.5" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="57" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Сельдерей" numberRidge="1.6" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="58" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Петрушка 2-ой год" numberRidge="1.7" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
-    <plant ID="59" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Клубника Ханей" numberRidge="1.8" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
+    <plant ID="59" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Лук" numberRidge="1.8" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="60" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Пусто" numberRidge="1.9" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="61" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Зелень" numberRidge="1.10" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="62" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Лук/Чеснок" numberRidge="1.11" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
@@ -123,7 +141,7 @@
     <plant ID="108" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Пусто" numberRidge="1.5" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="109" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Сельдерей" numberRidge="1.6" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="110" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Петрушка 2-ой год" numberRidge="1.7" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
-    <plant ID="111" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Клубника Ханей" numberRidge="1.8" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
+    <plant ID="111" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Помидоры" numberRidge="1.8" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="112" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Пусто" numberRidge="1.9" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="113" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Зелень" numberRidge="1.10" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>
     <plant ID="114" deoxidationLastElement="не проводилось" harvestingSum="не собирали" mineralizationLastElement="не проводилась" mulchingLastElement="не проводилось" name="Лук/Чеснок" numberRidge="1.11" sedationLastElement="не высаживали" wateringLastElement="не поливали"/>

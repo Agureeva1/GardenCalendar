@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="GardenCalendar" options="--add-exports jdk.internal.le/jdk.internal.org.jline.utils=com.example.cardencalendar" />
+      <module name="GardenCalendar" options="" />
     </option>
   </component>
 </project>

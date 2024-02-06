@@ -61,7 +61,8 @@ public class StartApplication extends Application {
             Scene sceneCanvas = new Scene(rootPlan);
             stagePlan.setScene(sceneCanvas);
             stagePlan.setTitle("Календарь огородника. План");
-            stagePlan.getIcons().add(new Image("C:\\Users\\aagureeva\\IdeaProjects\\GardenCalendar\\src\\main\\image\\клевер.png"));
+
+            stagePlan.getIcons().add(new Image( "file:src\\main\\image\\клевер.png"));
             stagePlan.show();
 
         });
@@ -84,7 +85,7 @@ public class StartApplication extends Application {
             stageChart.setTitle("Календарь огородника. Диаграмма");
 
 
-            stageChart.getIcons().add(new Image("C:\\Users\\aagureeva\\IdeaProjects\\GardenCalendar\\src\\main\\image\\клевер.png"));
+            stageChart.getIcons().add(new Image("file:src\\main\\image\\клевер.png"));
             stageChart.show();
         });
 
@@ -101,7 +102,7 @@ public class StartApplication extends Application {
         Scene scene = new Scene(root);
         stage.setMaximized(true);
         stage.setTitle("Календарь огородника");
-        stage.getIcons().add(new Image("C:\\Users\\aagureeva\\IdeaProjects\\GardenCalendar\\src\\main\\image\\клевер.png"));
+        stage.getIcons().add(new Image("file:src\\main\\image\\клевер.png"));
 
         stage.setScene(scene);
         stage.show();
